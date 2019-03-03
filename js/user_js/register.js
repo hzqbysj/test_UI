@@ -1,4 +1,4 @@
-var registerurl="http://localhost:8080/user/register"
+var registerurl="http://localhost:8002/user/register"
 
 $("#register-button").click(function () {
     if ($("#firstname").val()=="") {
@@ -48,6 +48,8 @@ $("#register-button").click(function () {
             contentType:'application/json;charset=UTF-8',
             success: function(data){
                 if(data.message == "注册成功"){
+                    sessionStorage.setItem("userId", data.data.userId);
+                    sessionStorage.setItem("userName", data.data.userName);
                     window.location = "newsfeed-videos.html" ;
                 }
                 else{
