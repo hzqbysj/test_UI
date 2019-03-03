@@ -1,0 +1,106 @@
+后端接口url的写法如下：(如果需要本地调试aliyun服务器后端接口，需要在api前加：http:119.23.15.225)
+
+1. api/user/login  #登录
+    参数：user_email  user_password
+    返回结果：{
+        data:user对象
+        message:登录成功
+    }
+2. api/user/register   #注册
+    参数：user对象
+    返回结果：{
+        data:user对象
+        message:注册成功
+    }
+3. api/user/getuserinfo   #通过邮箱获取用户信息
+    参数：user_email
+    返回结果：{
+        data:user对象
+        message:获取用户信息成功
+    }
+4. api/user/updateuser    #修改用户信息
+    参数：user对象
+    返回结果：{
+        data:user对象
+        message:更新用户信息成功
+    }
+5. api/user/deleteuser   #删除用户信息
+    参数：user_email
+    返回结果：{
+        data:null
+        message:删除成功
+    }
+6. api/music/getallmusic   #获取所有音乐
+    参数：null
+    返回结果：{
+        data:music对象集合
+        message：所有音乐获取成功
+    }
+7. api/music/getmusicbyid    #通过歌曲Id查找歌曲
+    参数：music_id
+    返回结果：{
+        data：music对象
+        message：获取音乐成功
+    }
+8. api/music/getmusicbyauthor     #通过作者id查找歌曲
+    参数：author_id
+    返回结果：{
+        data：music对象集合
+        message:获取音乐成功
+    }
+9. api/music/savemusic          #保存音乐
+    参数：music对象
+    返回结果：{
+        data：null
+        message:保存音乐成功
+    }
+10. api/music/collection        #点赞
+    参数：song_id
+    返回结果：{
+        data：music对象
+        message：修改成功
+    }
+11. api/music/dislike           #不喜欢
+    参数：song_id
+    返回结果：{
+        data：music对象
+        message：修改成功
+    }
+12. api/music/deletemusic       #删除音乐
+    参数：song_id
+    返回结果：{
+        data：null
+        message:删除成功
+    }
+13. api/musiccomment/getcommentbymusic    #获取歌曲的所有评论
+    参数：song_id
+    返回结果：{
+        data:歌曲评论对象集合
+        message:评论获取成功
+    }
+14. api/musiccomment/savecomment        #保存歌曲评论
+    参数：musicComment对象
+    返回结果{
+        data：null
+        message：保存评论成功
+    }
+15. api/musiccomment/deletecomment       #删除评论
+    参数：comment_id
+    返回结果：{
+        data：null
+        message：删除评论成功
+    }
+16. api/musiccomment/updatecomment       #修改评论
+    参数：musicComment对象
+    返回结果：{
+        data：musicComment对象
+        message：修改评论成功
+    }
+
+
+
+
+
+
+
+
