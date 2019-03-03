@@ -1,0 +1,34 @@
+Music对象：
+    int songId;
+    String songName;
+    int authorId;
+    String authorName;
+    int collection;
+    int dislike;
+    String songUrl;
+    Date createTime;
+    Date updateTime;
+    Date deleteTime;
+
+User对象：
+    int userId;
+    String userName;
+    String userEmail;
+    String userPassword;
+    String userSex;
+    String userCity;
+    Date createTime;
+    Date updateTime;
+    Date deleteTime;
+
+MusicComment对象：
+    int commentsId;
+    int userId;
+    String userName;
+    int toUserId;
+    String toUserName;
+    int musicId;
+    String comments;
+    Date createTime;
+    Date updateTime;
+    Date deleteTime;
