@@ -14,7 +14,7 @@
                 <img src="images/img.jpg">
             </div>
             <div class="right_box col-md-8">
-                <a class="forum_detail" href="forum_detail.html">
+                <a class="forum_detail" href="forum_detail.html?articleId=${value.articleId}">
                 <p class="right_name">${value.userName}<span>${value.createTime.substring(0,10)}</span></p>
                 <p class="right_text">${value.content} </p>
                 <p class="">
