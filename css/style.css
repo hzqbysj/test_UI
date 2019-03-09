@@ -2507,5 +2507,19 @@ ul.contact li i {
     background-color: #fff;
     z-index: 9999999;
 }
+.post-comment .post_comment_img{
+    /* vertical-align: middle */
+    width:60px;
+    /* padding-top: 10px; */
+
+}
+.post_comment_a{
+    /* line-height: 100%;
+    height: 100%; */
+    /* padding-top: 20px; */
+}
+/* .post_comment_p{
+    width:600px;
+} */
 
 
