@@ -1,4 +1,5 @@
-var registerurl="http://localhost:8002/user/register"
+// var registerurl="http://localhost:8002/user/register"
+var registerurl="api/user/register"
 
 $("#register-button").click(function () {
     if ($("#firstname").val()=="") {
