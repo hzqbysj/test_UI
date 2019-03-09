@@ -1,18 +1,18 @@
-var getmusicurl = "http://localhost:8002/music/getallmusic";
-var like = "http://localhost:8002/music/collection";
-var unlike = "http://localhost:8002/music/dislike";
-var up_load = "http://localhost:8002/music/savemusic";
-var up_file = "http://localhost:8003/upfile";
-var getcomment_url = "http://localhost:8002/musiccomment/getcommentbymusic"
-var savecomment_url = "http://localhost:8002/musiccomment/savecomment"
+// var getmusicurl = "http://localhost:8002/music/getallmusic";
+// var like = "http://localhost:8002/music/collection";
+// var unlike = "http://localhost:8002/music/dislike";
+// var up_load = "http://localhost:8002/music/savemusic";
+// var up_file = "http://localhost:8003/upfile";
+// var getcomment_url = "http://localhost:8002/musiccomment/getcommentbymusic"
+// var savecomment_url = "http://localhost:8002/musiccomment/savecomment"
 
-// var getmusicurl = "api/music/getallmusic";
-// var like = "api/music/collection";
-// var unlike = "api/music/dislike";
-// var up_load = "api/music/savemusic";
-// var up_file = "api/upfile";
-// var getcomment_url = "api/musiccomment/getcommentbymusic"
-// var savecomment_url = "api/musiccomment/savecomment"
+var getmusicurl = "http://119.23.15.225/api/music/getallmusic";
+var like = "http://119.23.15.225/api/music/collection";
+var unlike = "http://119.23.15.225/api/music/dislike";
+var up_load = "http://119.23.15.225/api/music/savemusic";
+var up_file = "http://119.23.15.225/api/upfile";
+var getcomment_url = "http://119.23.15.225/api/musiccomment/getcommentbymusic"
+var savecomment_url = "http://119.23.15.225/api/musiccomment/savecomment"
 
 var music_list;
 var comment_list;
@@ -342,11 +342,11 @@ function loadMusic(tag) {
 };
 
 function musiccomment(tag,i) {
-    var html = '<div class="post-comment">\n' +
-        '           <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm"/>\n' +
-        '           <a id="user'+tag+"-"+i+'" class="profile-link">John</a>\n' +
+    var html = '<div class="post-comment row">\n' +
+        '         <img  src="http://placehold.it/300x300" alt="" class="profile-photo-sm post_comment_img  col-md-2"/>\n' +
+        '           <a id="user'+tag+"-"+i+'" class="profile-link post_comment_a col-md-2">John</a>\n' +
         '<br/>\n' +
-        '<p id="comment'+tag+"-"+i+'"> test</p>\n' +
+        '<p id="comment'+tag+"-"+i+'" " class="post_comment_p col-md-9"> test</p>\n' +
         '       </div>'
 
     return html;
