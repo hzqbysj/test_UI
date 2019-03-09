@@ -1,4 +1,6 @@
-var loginurl="http://localhost:8002/user/login"
+// var loginurl="http://localhost:8002/user/login"
+var loginurl="api/user/login"
+
 
 $("#login-button").click(function () {
 
