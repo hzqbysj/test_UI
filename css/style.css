@@ -2522,4 +2522,34 @@ ul.contact li i {
     width:600px;
 } */
 
+/* -------------------论坛的css样式------------------------ */
+#forum_container {
+    margin: 50px 200px;
+}
+#forum_container  .left_box img{
+    width: 50px;
+    height: 50px;;
+}
+#forum_container .forum_list{
+    padding: 20px 0px;
+    border-bottom: #4d4d4d  solid  1px;
+ }
+#forum_container .right_name span{
+    padding: 0px 20px;
+ }
+ #forum_container .right_read{
+     margin-right: 50px;
+     color: red;
+ }
+ #forum_container .right_comment{
+     color: green;
+ }
+ #forum_container .right_text{
+    width:600px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;
+ }
+ #forum_container .forum_detail{
+    display: block;
+    text-decoration:none;
+    color:black;
+ }
 

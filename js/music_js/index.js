@@ -1,18 +1,18 @@
-var getmusicurl = "http://localhost:8002/music/getallmusic";
-var like = "http://localhost:8002/music/collection";
-var unlike = "http://localhost:8002/music/dislike";
-var up_load = "http://localhost:8002/music/savemusic";
-var up_file = "http://localhost:8003/upfile";
-var getcomment_url = "http://localhost:8002/musiccomment/getcommentbymusic"
-var savecomment_url = "http://localhost:8002/musiccomment/savecomment"
+// var getmusicurl = "http://localhost:8002/music/getallmusic";
+// var like = "http://localhost:8002/music/collection";
+// var unlike = "http://localhost:8002/music/dislike";
+// var up_load = "http://localhost:8002/music/savemusic";
+// var up_file = "http://localhost:8003/upfile";
+// var getcomment_url = "http://localhost:8002/musiccomment/getcommentbymusic"
+// var savecomment_url = "http://localhost:8002/musiccomment/savecomment"
 
-// var getmusicurl = "http://119.23.15.225/api/music/getallmusic";
-// var like = "http://119.23.15.225/api/music/collection";
-// var unlike = "http://119.23.15.225/api/music/dislike";
-// var up_load = "http://119.23.15.225/api/music/savemusic";
-// var up_file = "http://119.23.15.225/api/upfile";
-// var getcomment_url = "http://119.23.15.225/api/musiccomment/getcommentbymusic"
-// var savecomment_url = "http://119.23.15.225/api/musiccomment/savecomment"
+var getmusicurl = "http://119.23.15.225/api/music/getallmusic";
+var like = "http://119.23.15.225/api/music/collection";
+var unlike = "http://119.23.15.225/api/music/dislike";
+var up_load = "http://119.23.15.225/api/music/savemusic";
+var up_file = "http://119.23.15.225/api/upfile";
+var getcomment_url = "http://119.23.15.225/api/musiccomment/getcommentbymusic"
+var savecomment_url = "http://119.23.15.225/api/musiccomment/savecomment"
 
 var music_list;
 var comment_list;
