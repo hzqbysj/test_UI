@@ -44,5 +44,4 @@ $("#login-button").click(function () {
             }
         });
     }
-
 });

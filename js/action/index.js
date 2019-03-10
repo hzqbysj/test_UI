@@ -1,6 +1,9 @@
+// var bestmusic_url = "http://119.23.15.225/api/music/getbestmusic";
+var bestmusic_url = "http://localhost:8002/music/getbestmusic";
+
 !function($){
     $.ajax({
-        url:'http://119.23.15.225/api/music/getbestmusic',
+        url:bestmusic_url,
         data:{
             sid:location.search.substring(1).split('=')[1]
         },
