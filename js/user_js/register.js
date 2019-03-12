@@ -51,6 +51,11 @@ $("#register-button").click(function () {
                 if(data.message == "注册成功"){
                     sessionStorage.setItem("userId", data.data.userId);
                     sessionStorage.setItem("userName", data.data.userName);
+                    sessionStorage.setItem("sex", data.data.userSex);
+                    sessionStorage.setItem("address", data.data.userCity);
+                    sessionStorage.setItem("phone", data.data.phone);
+                    sessionStorage.setItem("professional", data.data.professional);
+                    sessionStorage.setItem("birthday", data.data.birthday);
                     window.location = "newsfeed-videos.html" ;
                 }
                 else{

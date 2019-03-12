@@ -21,8 +21,19 @@ var tag = 0;
 $(document).ready(function () {
 
     var userName = sessionStorage.getItem("userName");
+    var sex = sessionStorage.getItem("sex");
+    var address = sessionStorage.getItem("address");
+    var phone = sessionStorage.getItem("phone");
+    var professional = sessionStorage.getItem("professional");
+    var birthday = sessionStorage.getItem("birthday");
 
     document.getElementById('user-name').innerText = userName;
+
+    document.getElementById('sex').innerText = sex;
+    document.getElementById('address').innerText = address;
+    document.getElementById('phone').innerText = phone;
+    document.getElementById('professional').innerText = professional;
+    document.getElementById('birthday').innerText = birthday;
 
     $.ajax({
         type: 'POST',
