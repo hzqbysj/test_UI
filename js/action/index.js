@@ -13,8 +13,8 @@
         <div class="follow-user">
             <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left"/>
             <div>
-                <h5><a href="#">${res.data[0].songName}</a></h5>
-                <a href="#" class="text-green">${res.data[0].authorName}</a>
+                <h5>${res.data[0].songName}</h5>
+                ${res.data[0].authorName}
                 <p>
                 <i class="fa fa-thumbs-up"></i><span>${res.data[0].collection}</span>
                 <i class="fa fa-thumbs-down"></i><span>${res.data[0].dislike}</span></p>
@@ -23,8 +23,8 @@
         <div class="follow-user">
             <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left"/>
             <div>
-                <h5><a href="#">${res.data[1].songName}</a></h5>
-                <a href="#" class="text-green">${res.data[1].authorName}</a>
+                <h5>${res.data[1].songName}</h5>
+                ${res.data[1].authorName}
                 <p>
                 <i class="fa fa-thumbs-up"></i><span>${res.data[1].collection}</span>
                 <i class="fa fa-thumbs-down"></i><span>${res.data[1].dislike}</span></p>
@@ -33,8 +33,8 @@
         <div class="follow-user">
             <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left"/>
             <div>
-                <h5><a href="#">${res.data[2].songName}</a></h5>
-                <a href="#" class="text-green">${res.data[2].authorName}</a>
+                <h5>${res.data[2].songName}</h5>
+                ${res.data[2].authorName}
                 <p>
                 <i class="fa fa-thumbs-up"></i><span>${res.data[2].collection}</span>
                 <i class="fa fa-thumbs-down"></i><span>${res.data[2].dislike}</span></p>

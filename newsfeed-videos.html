@@ -11,8 +11,8 @@
 
     <!-- audio -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="js/mediaelement-and-player.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+    <!--<script src="js/mediaelement-and-player.min.js"></script>-->
     <link rel="stylesheet" href="css/audio.css" media="screen">
 
     <!-- Stylesheets
@@ -72,23 +72,20 @@
                     <h5><a href="timeline.html" class="text-white" id="user-name">zhenqinghe</a></h5>
                 </div><!--profile card ends-->
                 <ul class="nav-news-feed">
-                    <li><i class="icon ion-ios-paper"></i>
-                        <div><a href="#">年龄</a></div>
-                    </li>
                     <li><i class="icon ion-ios-people"></i>
-                        <div><a href="#">性别</a></div>
+                        <div>性别<p id="sex"></p></div>
                     </li>
                     <li><i class="icon ion-ios-people-outline"></i>
-                        <div><a href="#">所在地址</a></div>
+                        <div>所在地址<p id="address"></p></div>
                     </li>
                     <li><i class="icon ion-chatboxes"></i>
-                        <div><a href="#">联系方式</a></div>
+                        <div>联系方式<p id="phone"></p></div>
                     </li>
                     <li><i class="icon ion-images"></i>
-                        <div><a href="#">职业</a></div>
+                        <div>职业<p id="professional"></p></div>
                     </li>
                     <li><i class="icon ion-ios-videocam"></i>
-                        <div><a href="#">生日</a></div>
+                        <div>生日<p id="birthday"></p></div>
                     </li>
                 </ul>
             </div>
@@ -97,14 +94,14 @@
                     <div class="row">
                         <div class="col-md-5 col-sm-5">
                             <div class="tools">
-                                <ul class="publishing-tools list-inline">
-                                    <li><a href="#"><i class="ion-compose"></i></a></li>
-                                    <li><a href="#"><i class="ion-images"></i></a></li>
-                                    <li><a href="#"><i class="ion-ios-videocam"></i></a></li>
-                                    <li><a href="#"><i class="ion-map"></i></a></li>
-                                </ul>
-                                <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#add-music">
-                                    Publish
+                                <!--<ul class="publishing-tools list-inline">-->
+                                    <!--<li><a href="#"><i class="ion-compose"></i></a></li>-->
+                                    <!--<li><a href="#"><i class="ion-images"></i></a></li>-->
+                                    <!--<li><a href="#"><i class="ion-ios-videocam"></i></a></li>-->
+                                    <!--<li><a href="#"><i class="ion-map"></i></a></li>-->
+                                <!--</ul>-->
+                                <button class="btn btn-primary pull-left" data-toggle="modal" data-target="#add-music">
+                                    发表作品
                                 </button>
                             </div>
                             <div id="add-music" class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -146,30 +143,6 @@
             </div>
             <div class="col-md-3 static">
                 <div id="music_top"></div>
-                <!-- <div class="suggestions" id="sticky-sidebar">
-                    <h4 class="grey">音乐排行榜</h4>
-                    <div class="follow-user">
-                        <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left"/>
-                        <div>
-                            <h5><a href="#">人间</a></h5>
-                            <a href="#" class="text-green">王菲</a>
-                        </div>
-                    </div>
-                    <div class="follow-user">
-                        <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left"/>
-                        <div>
-                            <h5><a href="#">人间</a></h5>
-                            <a href="#" class="text-green">王菲</a>
-                        </div>
-                    </div>
-                    <div class="follow-user">
-                        <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left"/>
-                        <div>
-                            <h5><a href="#">人间</a></h5>
-                            <a href="#" class="text-green">王菲</a>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -185,7 +158,6 @@
 <script src="js/jquery.scrollbar.min.js"></script>
 <script src="js/script.js"></script>
 
-<script src="js/music_js/jquery.min.js"></script>
 <script src='js/music_js/jquery.jplayer.min.js'></script>
 <script src='js/music_js/jplayer.playlist.min.js'></script>
 <script src="js/music_js/index.js"></script>

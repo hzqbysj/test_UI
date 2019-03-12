@@ -53,18 +53,37 @@
 
                     <div class="reg-options">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#register" data-toggle="tab">注册</a></li>
-                            <li><a href="#login" data-toggle="tab">登录</a></li>
+                            <li><a href="#register" data-toggle="tab">注册</a></li>
+                            <li class="active"><a href="#login" data-toggle="tab">登录</a></li>
                         </ul><!--Tabs End-->
                     </div>
 
                     <div class="tab-content">
-                        <!--register-->
-                        <div class="tab-pane active" id="register">
+                        <!--Login-->
+                        <div class="tab-pane active" id="login">
+                            <h3>登录</h3>
+                            <p class="text-muted">输入你的邮箱和密码，即刻登录</p>
+                            <form name="Login_form" id='Login_form'>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <label for="my-email" class="sr-only">Email</label>
+                                        <input id="my-email" class="form-control input-group-lg" type="text"
+                                               name="Email" title="Enter Email" placeholder="邮箱"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <label for="my-password" class="sr-only">Password</label>
+                                        <input id="my-password" class="form-control input-group-lg" type="password"
+                                               name="password" title="Enter password" placeholder="密码"/>
+                                    </div>
+                                </div>
+                            </form>
+                            <button class="btn btn-primary" id="login-button">登录</button>
+                        </div>
+                        <div class="tab-pane" id="register">
                             <h3>注册</h3>
                             <p class="text-muted">只需要输入你的名称、邮箱和密码即可加入我们！</p>
-
-                            <!--Register Form-->
                             <form name="registration_form" id='registration_form' class="form-inline">
                                 <div class="row">
                                     <div class="form-group col-xs-12">
@@ -72,11 +91,6 @@
                                         <input id="firstname" class="form-control input-group-lg" type="text"
                                                name="firstname" title="Enter first name" placeholder="昵称"/>
                                     </div>
-                                    <!--<div class="form-group col-xs-6">-->
-                                        <!--<label for="lastname" class="sr-only">Last Name</label>-->
-                                        <!--<input id="lastname" class="form-control input-group-lg" type="text"-->
-                                               <!--name="lastname" title="Enter last name" placeholder="Last name"/>-->
-                                    <!--</div>-->
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-xs-12">
@@ -108,49 +122,15 @@
                                     </div>
                                 </div>
                             </form>
-                            <!--<p><a href="#login">已有账号</a></p>-->
                             <button class="btn btn-primary" id="register-button">立即注册</button>
                         </div>
-                        <!--Login-->
-                        <div class="tab-pane" id="login">
-                            <h3>登录</h3>
-                            <p class="text-muted">输入你的邮箱和密码，即刻登录</p>
 
-                            <!--Login Form-->
-                            <form name="Login_form" id='Login_form'>
-                                <div class="row">
-                                    <div class="form-group col-xs-12">
-                                        <label for="my-email" class="sr-only">Email</label>
-                                        <input id="my-email" class="form-control input-group-lg" type="text"
-                                               name="Email" title="Enter Email" placeholder="邮箱"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-xs-12">
-                                        <label for="my-password" class="sr-only">Password</label>
-                                        <input id="my-password" class="form-control input-group-lg" type="password"
-                                               name="password" title="Enter password" placeholder="密码"/>
-                                    </div>
-                                </div>
-                            </form><!--Login Form Ends-->
-                            <p><a href="#">忘记密码</a></p>
-                            <button class="btn btn-primary" id="login-button">登录</button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6 col-sm-offset-6">
-
-                <!--Social Icons-->
-                <ul class="list-inline social-icons">
-                    <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
-                    <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
-                    <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
-                </ul>
             </div>
         </div>
     </div>

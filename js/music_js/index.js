@@ -1,18 +1,18 @@
-// var getmusicurl = "http://localhost:8002/music/getallmusic";
-// var like = "http://localhost:8002/music/collection";
-// var unlike = "http://localhost:8002/music/dislike";
-// var up_load = "http://localhost:8002/music/savemusic";
-// var up_file = "http://localhost:8003/upfile";
-// var getcomment_url = "http://localhost:8002/musiccomment/getcommentbymusic"
-// var savecomment_url = "http://localhost:8002/musiccomment/savecomment"
+var getmusicurl = "http://localhost:8002/music/getallmusic";
+var like = "http://localhost:8002/music/collection";
+var unlike = "http://localhost:8002/music/dislike";
+var up_load = "http://localhost:8002/music/savemusic";
+var up_file = "http://localhost:8003/upfile";
+var getcomment_url = "http://localhost:8002/musiccomment/getcommentbymusic"
+var savecomment_url = "http://localhost:8002/musiccomment/savecomment"
 
-var getmusicurl = "http://119.23.15.225/api/music/getallmusic";
-var like = "http://119.23.15.225/api/music/collection";
-var unlike = "http://119.23.15.225/api/music/dislike";
-var up_load = "http://119.23.15.225/api/music/savemusic";
-var up_file = "http://119.23.15.225/api/upfile";
-var getcomment_url = "http://119.23.15.225/api/musiccomment/getcommentbymusic"
-var savecomment_url = "http://119.23.15.225/api/musiccomment/savecomment"
+// var getmusicurl = "http://119.23.15.225/api/music/getallmusic";
+// var like = "http://119.23.15.225/api/music/collection";
+// var unlike = "http://119.23.15.225/api/music/dislike";
+// var up_load = "http://119.23.15.225/api/music/savemusic";
+// var up_file = "http://119.23.15.225/api/upfile";
+// var getcomment_url = "http://119.23.15.225/api/musiccomment/getcommentbymusic"
+// var savecomment_url = "http://119.23.15.225/api/musiccomment/savecomment"
 
 var music_list;
 var comment_list;
@@ -112,14 +112,12 @@ layui.use('flow', function () {
     flow.load({
         elem: '#main-music' //流加载容器
         , done: function (page, next) { //执行下一页的回调
-
             //模拟数据插入
             setTimeout(function () {
                 var lis = [];
                 for (var i = 0; i < 2; i++) {
                     lis.push(musicplay(tag + i));
                 }
-
                 //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
                 //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
                 next(lis.join(''), page < (music_list.length / 2)); //假设总页数为 10
@@ -132,73 +130,85 @@ layui.use('flow', function () {
 
 document.getElementById('song_sub').onclick = function () {
     var patt1 = /[^/]+(?!.*)/;
-    var songName = document.getElementById("songName").innerText;
+    var songName = document.getElementById("songName").value;
     var songUrl = document.getElementById("song_url").value;
     var songInfo = document.getElementById("songInfo").value;
     var x = songUrl.substr(songUrl.lastIndexOf('\\') + 1);
 
-    music = {
-        songName: songName,
-        songInfo: songInfo,
-        authorId: sessionStorage.getItem('userId'),
-        authorName: sessionStorage.getItem('userName'),
-        collection: 0,
-        dislike: 0,
-        songUrl: "music/" + x
+
+    if (songName == ""){
+        alert("请输入歌曲名字");
+    } else if (songInfo == ""){
+        alert("请输入歌曲信息")
+    } else if (songUrl == "") {
+        alert("请上传音频文件")
+    } else {
+        var formData = new FormData();
+        var temp = document.getElementById("song_url").files[0];
+        var filesize = temp.size;
+        formData.append('file', temp);
+        if (!/\.(mp3|MP3)$/.test(songUrl)) {
+            alert("音乐文件类型必须是.mp3格式");
+        } else if (filesize>(30*1024*1024)){
+            alert("音乐文件必须小于30MB");
+        } else {
+            music = {
+                songName: songName,
+                songInfo: songInfo,
+                authorId: sessionStorage.getItem('userId'),
+                authorName: sessionStorage.getItem('userName'),
+                collection: 0,
+                dislike: 0,
+                songUrl: "music/" + x
+            }
+            console.log(music);
+            $.ajax({
+                type: 'POST',
+                url: up_load,
+                data: JSON.stringify(music),
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                dataType: "json",
+                contentType: 'application/json;charset=UTF-8',
+                success: function (data) {
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: up_file,
+                data: formData,
+                processData: false, // 告诉jQuery不要去处理发送的数据
+                contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+                success: function (data) {
+                    if (data.message == "上传成功") {
+                        alert('上传成功');
+                        $('#add-music').modal('hide');
+                        // sessionStorage.setItem("userId", data.data.userId);
+                        // sessionStorage.setItem("userName", data.data.userName);
+                        // window.location = "newsfeed-music.html" ;
+                    }
+                    else {
+                        alert(data.message);
+                    }
+                    ;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+                }
+            });
+        }
     }
-    console.log(music);
-    $.ajax({
-        type: 'POST',
-        url: up_load,
-        data: JSON.stringify(music),
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        dataType: "json",
-        contentType: 'application/json;charset=UTF-8',
-        success: function (data) {
-
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest.status);
-            console.log(XMLHttpRequest.readyState);
-            console.log(textStatus);
-        }
-    });
-
-    var formData = new FormData();
-    var temp = document.getElementById("song_url").files[0];
-    console.log(temp);
-    formData.append('file', temp);
-
-    $.ajax({
-        type: 'POST',
-        url: up_file,
-        data: formData,
-        processData: false, // 告诉jQuery不要去处理发送的数据
-        contentType: false, // 告诉jQuery不要去设置Content-Type请求头
-        success: function (data) {
-            if (data.message == "保存音乐成功") {
-                alert('上传成功');
-                // sessionStorage.setItem("userId", data.data.userId);
-                // sessionStorage.setItem("userName", data.data.userName);
-                // window.location = "newsfeed-music.html" ;
-            }
-            else {
-                alert('11111');
-                alert(data.message);
-            }
-            ;
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest.status);
-            console.log(XMLHttpRequest.readyState);
-            console.log(textStatus);
-        }
-    });
-
-
 };
 
 function commentinput(e,obj, tag) {
