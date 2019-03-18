@@ -35,7 +35,7 @@ $("#login-button").click(function () {
                     sessionStorage.setItem("address", data.data.userCity);
                     sessionStorage.setItem("phone", data.data.phone);
                     sessionStorage.setItem("professional", data.data.professional);
-                    sessionStorage.setItem("birthday", data.data.birthday);
+                    sessionStorage.setItem("birthday", data.data.birthday.toString().substr(0,10));
                     window.location = "newsfeed-videos.html" ;
                 }
                 else{

@@ -1,18 +1,18 @@
-var getmusicurl = "http://localhost:8002/music/getallmusic";
-var like = "http://localhost:8002/music/collection";
-var unlike = "http://localhost:8002/music/dislike";
-var up_load = "http://localhost:8002/music/savemusic";
-var up_file = "http://localhost:8003/upfile";
-var getcomment_url = "http://localhost:8002/musiccomment/getcommentbymusic"
-var savecomment_url = "http://localhost:8002/musiccomment/savecomment"
+// var getmusicurl = "http://localhost:8002/music/getallmusic";
+// var like = "http://localhost:8002/music/collection";
+// var unlike = "http://localhost:8002/music/dislike";
+// var up_load = "http://localhost:8002/music/savemusic";
+// var up_file = "http://localhost:8003/upfile";
+// var getcomment_url = "http://localhost:8002/musiccomment/getcommentbymusic"
+// var savecomment_url = "http://localhost:8002/musiccomment/savecomment"
 
-// var getmusicurl = "http://119.23.15.225/api/music/getallmusic";
-// var like = "http://119.23.15.225/api/music/collection";
-// var unlike = "http://119.23.15.225/api/music/dislike";
-// var up_load = "http://119.23.15.225/api/music/savemusic";
-// var up_file = "http://119.23.15.225/api/upfile";
-// var getcomment_url = "http://119.23.15.225/api/musiccomment/getcommentbymusic"
-// var savecomment_url = "http://119.23.15.225/api/musiccomment/savecomment"
+var getmusicurl = "http://119.23.15.225/api/music/getallmusic";
+var like = "http://119.23.15.225/api/music/collection";
+var unlike = "http://119.23.15.225/api/music/dislike";
+var up_load = "http://119.23.15.225/api/music/savemusic";
+var up_file = "http://119.23.15.225/api/upfile";
+var getcomment_url = "http://119.23.15.225/api/musiccomment/getcommentbymusic"
+var savecomment_url = "http://119.23.15.225/api/musiccomment/savecomment"
 
 var music_list;
 var comment_list;
@@ -119,6 +119,7 @@ function dislikes(tag) {
 
 layui.use('flow', function () {
     var flow = layui.flow;
+    var t = 2;
     //alert(music_list.length);
     flow.load({
         elem: '#main-music' //流加载容器
@@ -127,13 +128,19 @@ layui.use('flow', function () {
             setTimeout(function () {
                 var lis = [];
                 for (var i = 0; i < 2; i++) {
-                    lis.push(musicplay(tag + i));
+                    if ((music_list.length/2) - page < 0){
+                        lis.push(musicplay(tag + i));
+                        t = 1;
+                        break;
+                    } else {
+                        lis.push(musicplay(tag + i));
+                    }
                 }
                 //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
                 //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
                 next(lis.join(''), page < (music_list.length / 2)); //假设总页数为 10
                 loadMusic(tag);
-                tag = tag + 2;
+                tag = tag + t;
             }, 500);
         }
     });

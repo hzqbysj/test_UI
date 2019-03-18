@@ -1190,7 +1190,7 @@ ul.online-users li span.online-dot {
 }
 
 .post-content .post-container .post-detail {
-    margin-left: 65px;
+    /*margin-left: 65px;*/
     position: relative;
 }
 
@@ -2523,33 +2523,153 @@ ul.contact li i {
 } */
 
 /* -------------------论坛的css样式------------------------ */
-#forum_container {
-    margin: 50px 200px;
-}
-#forum_container  .left_box img{
+#rock {
+      margin: 50px 200px;
+  }
+#rock  .left_box img{
     width: 50px;
     height: 50px;;
 }
-#forum_container .forum_list{
+#rock .forum_list{
     padding: 20px 0px;
     border-bottom: #4d4d4d  solid  1px;
- }
-#forum_container .right_name span{
+}
+#rock .right_name span{
     padding: 0px 20px;
- }
- #forum_container .right_read{
-     margin-right: 50px;
-     color: red;
- }
- #forum_container .right_comment{
-     color: green;
- }
- #forum_container .right_text{
+}
+#rock .right_read{
+    margin-right: 50px;
+    color: red;
+}
+#rock .right_comment{
+    color: green;
+}
+#rock .right_text{
     width:600px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;
- }
- #forum_container .forum_detail{
+}
+#rock .forum_detail{
     display: block;
     text-decoration:none;
     color:black;
- }
+}
+
+#metal {
+    margin: 50px 200px;
+}
+#metal  .left_box img{
+    width: 50px;
+    height: 50px;;
+}
+#metal .forum_list{
+    padding: 20px 0px;
+    border-bottom: #4d4d4d  solid  1px;
+}
+#metal .right_name span{
+    padding: 0px 20px;
+}
+#metal .right_read{
+    margin-right: 50px;
+    color: red;
+}
+#metal .right_comment{
+    color: green;
+}
+#metal .right_text{
+    width:600px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;
+}
+#metal .forum_detail{
+    display: block;
+    text-decoration:none;
+    color:black;
+}
+
+#popular {
+    margin: 50px 200px;
+}
+#popular  .left_box img{
+    width: 50px;
+    height: 50px;;
+}
+#popular .forum_list{
+    padding: 20px 0px;
+    border-bottom: #4d4d4d  solid  1px;
+}
+#popular .right_name span{
+    padding: 0px 20px;
+}
+#popular .right_read{
+    margin-right: 50px;
+    color: red;
+}
+#popular .right_comment{
+    color: green;
+}
+#popular .right_text{
+    width:600px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;
+}
+#popular .forum_detail{
+    display: block;
+    text-decoration:none;
+    color:black;
+}
+
+#classical {
+    margin: 50px 200px;
+}
+#classical  .left_box img{
+    width: 50px;
+    height: 50px;;
+}
+#classical .forum_list{
+    padding: 20px 0px;
+    border-bottom: #4d4d4d  solid  1px;
+}
+#classical .right_name span{
+    padding: 0px 20px;
+}
+#classical .right_read{
+    margin-right: 50px;
+    color: red;
+}
+#classical .right_comment{
+    color: green;
+}
+#classical .right_text{
+    width:600px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;
+}
+#classical .forum_detail{
+    display: block;
+    text-decoration:none;
+    color:black;
+}
+
+#own {
+    margin: 50px 200px;
+}
+#own  .left_box img{
+    width: 50px;
+    height: 50px;;
+}
+#own .forum_list{
+    padding: 20px 0px;
+    border-bottom: #4d4d4d  solid  1px;
+}
+#own .right_name span{
+    padding: 0px 20px;
+}
+#own .right_read{
+    margin-right: 50px;
+    color: red;
+}
+#own .right_comment{
+    color: green;
+}
+#own .right_text{
+    width:600px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;
+}
+#own .forum_detail{
+    display: block;
+    text-decoration:none;
+    color:black;
+}
 
