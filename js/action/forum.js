@@ -1,10 +1,12 @@
 // var getarticle = "http://localhost:8002/article/getallarticle"
 // var up_article = "http://localhost:8002/article/savearticle"
+var deleteairticle_url = "http://localhost:8002/article/deletearticle"
 
 var getarticle="http://119.23.15.225/api/article/getallarticle"
 var up_article = "api/article/savearticle"
 
 var user_id = sessionStorage.getItem("userId");
+var article_list;
 
 document.getElementById('article_sub').onclick = function () {
     var type = document.getElementById("type").value;
@@ -58,7 +60,7 @@ document.getElementById('article_sub').onclick = function () {
         data: {},
         dataType: 'json'
     }).done(function (res) {
-        console.log(res.data, '论坛测试');
+        article_list = res.data;
         var $metal = '';
         var $rock = '';
         var $popular = '';
@@ -144,6 +146,8 @@ document.getElementById('article_sub').onclick = function () {
                     <span class="right_comment">评论数量<i>${value.replyNum}</i></span>
                 </p>
                 </a>
+                <button class="layui-btn layui-btn-xs layui-btn-normal" onclick="changearticle(${value.articleId})"><i class="layui-icon"></i></button>
+                <button class="layui-btn layui-btn-xs layui-btn-normal" onclick="deletearticle(${value.articleId})"><i class="layui-icon"></i></button>
             </div>
         </div>`;
             }
@@ -183,3 +187,46 @@ layui.use('element', function () {
     });
 
 });
+
+function deletearticle(article_id) {
+
+    var msg = "您真的确定要删除吗？\n\n请确认！";
+    if (confirm(msg)==true){
+        $.ajax({
+            type: 'POST',
+            url: deleteairticle_url,
+            async: false,
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            dataType: "json",
+            contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+            data: {
+                article_id: article_id
+            },
+            success: function (data) {
+                alert("删除成功");
+                window.location.reload(true);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+                alert(data.message)
+            }
+        });
+    }else{
+        return false;
+    }
+};
+
+function changearticle(article_id) {
+    $.each(article_list, function (index, value) {
+        if (value.articleId == article_id) {
+            $('#change-article').modal('show');
+            $('#c-title').val(value.title) ;
+            $('#c-content').val(value.content);
+        }
+    });
+}

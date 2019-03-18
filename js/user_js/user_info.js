@@ -7,14 +7,6 @@ var up_file = "http://localhost:8003/upfile";*/
 // var getuserinfo_url = "http://localhost:8003/getmusicbyauthor";
 // var deletemusic_url = "http://localhost:8002/music/deletemusic"
 
-
-
-
-
-
-
-
-
 var userId = sessionStorage.getItem("userId");
 var userName = sessionStorage.getItem("userName");
 
@@ -126,7 +118,6 @@ function loadMusic(res) {
         var myPlaylist = new jPlayerPlaylist(cssSelector, playlist, options);
     });
 };
-
 
 document.getElementById('song_sub').onclick = function () {
     var patt1 = /[^/]+(?!.*)/;

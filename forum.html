@@ -53,6 +53,12 @@
                     </li>
 
                 </ul>
+                <form class="navbar-form navbar-right hidden-sm">
+                    <div class="form-group">
+                        <i class="icon ion-android-search"></i>
+                        <input id="search" type="text" class="form-control" placeholder="搜索文章">
+                    </div>
+                </form>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </nav>
@@ -98,6 +104,37 @@
                             <option >金属</option>
                         </select>
                         <button class="btn btn-primary pull-right" id="article_sub">
+                            提交
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="change-article" class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="post-content">
+                    <div class="post-container">
+                        <div class="post-detail">
+                            <div class="post-comment">
+                                <input type="text" class="form-control"
+                                       placeholder="文章标题" id="c-title">
+                            </div>
+                        </div>
+                        <div class="layui-input-block">
+                            <textarea id="c-content" placeholder="文章内容" class="layui-textarea"></textarea>
+                        </div>
+                        <output>文章类型：</output>
+                        <select id="c-type" class="combobox">
+                            <option></option>
+                            <option >摇滚</option>
+                            <option >古典</option>
+                            <option >流行</option>
+                            <option >金属</option>
+                        </select>
+                        <button class="btn btn-primary pull-right" id="c_article_sub">
                             提交
                         </button>
                     </div>
