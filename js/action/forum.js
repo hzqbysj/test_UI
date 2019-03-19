@@ -1,11 +1,14 @@
-var getarticle = "http://localhost:8002/article/getallarticle"
-var up_article = "http://localhost:8002/article/savearticle"
-var deleteairticle_url = "http://localhost:8002/article/deletearticle"
-var changearticle_url = "http://localhost:8002/article/updatearticle"
-var search_url = "http://localhost:8002/article/searcharticle"
+// var getarticle = "http://localhost:8002/article/getallarticle"
+// var up_article = "http://localhost:8002/article/savearticle"
+// var deleteairticle_url = "http://localhost:8002/article/deletearticle"
+// var changearticle_url = "http://localhost:8002/article/updatearticle"
+// var search_url = "http://localhost:8002/article/searcharticle"
 
-// var getarticle="http://119.23.15.225/api/article/getallarticle"
-// var up_article = "api/article/savearticle"
+var getarticle="http://119.23.15.225/api/article/getallarticle"
+var up_article = "api/article/savearticle"
+var deleteairticle_url = "api/article/deletearticle"
+var changearticle_url = "api/article/updatearticle"
+var search_url = "api/article/searcharticle"
 
 var user_id = sessionStorage.getItem("userId");
 var article_list;
@@ -301,9 +304,8 @@ function searchinput(e,search) {
                 alert(data.message);
                 var $result = '';
                 $.each(data.data, function (index, value) {
-                    alert(index);
                     $result += `<div class="forum_list row">
-            <div class="left_box col-md-1">
+            <div class="left_box col-md-2">
                 <img src="images/img.jpg">
             </div>
             <div class="right_box col-md-8">
