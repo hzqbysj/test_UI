@@ -1,23 +1,26 @@
-// var getarticle = "http://localhost:8002/article/getallarticle"
-// var up_article = "http://localhost:8002/article/savearticle"
+var getarticle = "http://localhost:8002/article/getallarticle"
+var up_article = "http://localhost:8002/article/savearticle"
 var deleteairticle_url = "http://localhost:8002/article/deletearticle"
+var changearticle_url = "http://localhost:8002/article/updatearticle"
+var search_url = "http://localhost:8002/article/searcharticle"
 
-var getarticle="http://119.23.15.225/api/article/getallarticle"
-var up_article = "api/article/savearticle"
+// var getarticle="http://119.23.15.225/api/article/getallarticle"
+// var up_article = "api/article/savearticle"
 
 var user_id = sessionStorage.getItem("userId");
 var article_list;
+var change_article_id;
 
 document.getElementById('article_sub').onclick = function () {
     var type = document.getElementById("type").value;
     var title = document.getElementById("title").value;
     var content = document.getElementById("content").value;
 
-    if (type == "") {
+    if (title == "") {
         alert("请输入文章名字");
-    } else if (title == "") {
-        alert("请输入文章内容");
     } else if (content == "") {
+        alert("请输入文章内容");
+    } else if (type == "") {
         alert("请选择文章类型");
     } else {
         article = {
@@ -224,9 +227,107 @@ function deletearticle(article_id) {
 function changearticle(article_id) {
     $.each(article_list, function (index, value) {
         if (value.articleId == article_id) {
+            change_article_id = article_id;
             $('#change-article').modal('show');
             $('#c-title').val(value.title) ;
             $('#c-content').val(value.content);
         }
     });
+};
+
+document.getElementById('c_article_sub').onclick = function () {
+    var type = document.getElementById("c-type").value;
+    var title = document.getElementById("c-title").value;
+    var content = document.getElementById("c-content").value;
+
+    if (title == "") {
+        alert("请输入文章名字");
+    } else if (content == "") {
+        alert("请输入文章内容");
+    } else if (type == "") {
+        alert("请选择文章类型");
+    } else {
+        article = {
+            articleId:change_article_id,
+            title: title,
+            content: content,
+            userId: sessionStorage.getItem('userId'),
+            userName: sessionStorage.getItem('userName'),
+            readNum: 0,
+            replyNum: 0,
+            type: type
+        }
+        $.ajax({
+            type: 'POST',
+            url: changearticle_url,
+            data: JSON.stringify(article),
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
+            success: function (data) {
+                alert(data.message);
+                $('#change-article').modal('hide');
+                window.location.reload(true);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            }
+        });
+    }
+};
+
+function searchinput(e,search) {
+    if(e.keyCode == 13){
+        var s = search.value;
+        $.ajax({
+            type: 'POST',
+            url: search_url,
+            xhrFields: {
+                withCredentials: true
+            },
+            async: false,
+            data: {
+                seacher:s
+            },
+            crossDomain: true,
+            dataType: "json",
+            contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+            success: function (data) {
+                alert(data.message);
+                var $result = '';
+                $.each(data.data, function (index, value) {
+                    alert(index);
+                    $result += `<div class="forum_list row">
+            <div class="left_box col-md-1">
+                <img src="images/img.jpg">
+            </div>
+            <div class="right_box col-md-8">
+                <a class="forum_detail" href="forum_detail.html?articleId=${value.articleId}">
+                <p class="right_name">${value.userName}<span>${value.createTime.substring(0, 10)}</span></p>
+                <p class="right_text">${value.content} </p>
+                <p class="">
+                    <span class="right_read">阅读数量<i>${value.readNum}</i></span>
+                    <span class="right_comment">评论数量<i>${value.replyNum}</i></span>
+                </p>
+                </a>
+            </div>
+        </div>`;
+                });
+
+                $('#search-article').html($result);
+                $('#search-modal').modal('show');
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(data.message);
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            }
+        });
+    }
 }

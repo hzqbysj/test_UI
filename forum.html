@@ -53,10 +53,10 @@
                     </li>
 
                 </ul>
-                <form class="navbar-form navbar-right hidden-sm">
+                <form class="navbar-form navbar-right hidden-sm" onsubmit="return false">
                     <div class="form-group">
                         <i class="icon ion-android-search"></i>
-                        <input id="search" type="text" class="form-control" placeholder="搜索文章">
+                        <input id="search" type="text" class="form-control" placeholder="搜索文章" onkeydown="searchinput(event,this)">
                     </div>
                 </form>
             </div><!-- /.navbar-collapse -->
@@ -112,6 +112,17 @@
         </div>
     </div>
 
+    <div id="search-modal" class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="post-content">
+                    <div id="search-article" class="post-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="change-article" class="modal fade modal-1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -144,7 +155,6 @@
     </div>
 
     <div class="layui-tab-content" style="height: 100px;">
-        <!--<div class="layui-tab-item layui-show">内容不一样是要有，因为你可以监听tab事件（阅读下文档就是了）</div>-->
         <div id="rock" class="layui-tab-item layui-show"></div>
         <div id="popular" class="layui-tab-item"></div>
         <div id="classical" class="layui-tab-item"></div>
